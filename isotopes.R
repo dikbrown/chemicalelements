@@ -81,3 +81,12 @@ m = 1.008664916 # mass of neutron in Da
 k = 931.49410242 # (conversion between MeV and Da)
 
 isotopes$mass <- isotopes$A * (m - isotopes$energy / k)
+
+
+##############
+# Save table as csv
+###############
+
+write.csv(isotopes, "./data/isotopes.csv", row.names = FALSE)
+
+
