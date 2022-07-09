@@ -62,6 +62,17 @@ while (count(tables, is.na(Z))[2,2] > 0) {
 }
 
 tables <- tables[,-2:3] # remove Symbol column
+
+# Change certain isotopic abundances to zero.
+#   Those for which other isotopes have non-zero abundances
+#   First, find rows with abundance = NA
+tables[which(is.na(tables$abundance)),]
+# only the first two need replacement
+tables[3,3] <- 0  # 3H, tritium
+tables[13,3] <- 0  # 14C
+
+
+
 #########################
 
 write.csv(tables, "./data/abundances.csv", row.names = FALSE)
