@@ -60,8 +60,8 @@ isotopes <- isotopes[,-c(1:2)] # drop "no" column, which is simply an index numb
 #get numbers expressed in scientific notation - they use a multiplication symbol (not 'x')
 #   and convert half-lives to numeric
 ###################################################################################
-mult_symbol <- isotopes[106,5] %>%
-  substr(5,5)
+mult_symbol <-T7[1,6] %>%
+  substr(6,6)
 mult_symbol
 
 #### split scientific notation into two parts: coefficient and power of 10
