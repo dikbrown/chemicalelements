@@ -81,7 +81,21 @@ m = 1.008664916 # mass of neutron in Da
 k = 931.49410242 # (conversion between MeV and Da)
 
 isotopes$mass <- isotopes$A * (m - isotopes$energy / k)
-
+# round mass to correct number of significant digits
+isotopes$mass <- 
+  unlist(sapply(isotopes$mass,
+       function (x) if (is.na(x)) {x <- NA 
+                                } else if (x < 1.1) {   # this catches 1H, in which energy has 6 sig figs
+                                  x <- round(x, 5)      # all the rest have 7 sig figs
+                                } else if (x < 10) {    
+                                  x <- round(x, 6)
+                                } else if (x < 100) {
+                                  x <- round(x, 5)
+                                } else if (x >= 100) {
+                                  x <- round(x, 4)
+                                }
+    )
+)
 
 ##############
 # Save table as csv
