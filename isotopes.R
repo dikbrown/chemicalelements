@@ -1,14 +1,5 @@
 library(rvest)
 library(tidyverse)
-webpage <- read_html("https://en.wikipedia.org/wiki/Chemical_element")
-elements_html <- html_nodes(webpage, css = "table")
-elements_html
-elements_tbl <- elements_html %>%
-                  html_nodes(css = "table") %>%
-                  nth(7) %>%
-                  html_table(fill = TRUE)
-    
-
 
 isotope_url = "https://en.wikipedia.org/wiki/List_of_nuclides"
 isotope_tables = read_html(isotope_url) %>%

@@ -8,27 +8,9 @@ elements_tbl <- elements_html %>%
                   nth(7) %>%
                   html_table(fill = TRUE)
     
-
-
-
-
-
-url = "https://en.wikipedia.org/wiki/Houston"
-houston_html = read_html(url)
-houston_html %>% 
-  html_nodes(css = "table")
-pop_table = 
-  houston_html %>% 
-  html_nodes(css = "table") %>% 
-  nth(4) %>% 
-  html_table(fill = TRUE)
-
-
-
 url2 = "https://en.wikipedia.org/wiki/Chemical_element"
 elements_html = read_html(url2)
-houston_html %>% 
-  html_nodes(css = "table")
+
 element_table = 
   elements_html %>% 
   html_nodes(css = "table") %>% 
